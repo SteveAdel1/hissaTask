@@ -6,8 +6,8 @@ class CarouselItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 560,
-      height: 210,
+      width: 433,
+      height: 100,
       decoration: BoxDecoration(
           color: Color(0xFFFFF5F0),
           borderRadius: BorderRadius.circular(10),
@@ -18,14 +18,10 @@ class CarouselItem extends StatelessWidget {
               width: 1)),
       child: Stack(
         children: [
+          Image.asset("assets/images/Plant.png"),
           Padding(
-            padding: const EdgeInsets.only(top: 8.0,left: 8),
-            child: Image.asset("assets/images/Plant.png"),
-          ),
-          Positioned(
-              top: 43,
-              left: 15
-              ,child: Image.asset("assets/images/gift.png")),
+              padding: EdgeInsets.only(top: 60,left: 10),
+              child: Image.asset("assets/images/gift.png")),
           Positioned(
             right: 5,
             child: Padding(

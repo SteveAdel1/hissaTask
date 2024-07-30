@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../home/view/home_view.dart';
+import '../sign_in/view/sign_in_wiew.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -10,7 +11,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
       Timer(const Duration(seconds: 4), () {
-       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView(),));
+       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInView(),));
       });
     return Container(
       alignment: Alignment.center,

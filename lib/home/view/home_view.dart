@@ -1,34 +1,35 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widgets/carousel_item.dart';
 import '../widgets/teacher_card.dart';
 
 class HomeView extends StatelessWidget {
-   HomeView({super.key});
+  HomeView({super.key});
   final PageController controller = PageController();
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: size.height,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-            Color(0xFFFFEDD3),
-            Color(0xFFF8F8F8),
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
+      body: Container(
+        height: size.height,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xFFFFEDD3),
+              Colors.white,
+            ], begin: Alignment.topCenter
+                , end: Alignment.bottomCenter)),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
                   children: [
                     Image.asset(
                         width: 25, height: 23.98, "assets/images/logo.png"),
@@ -57,12 +58,15 @@ class HomeView extends StatelessWidget {
                         width: 42, height: 42, "assets/images/profile.png"),
                   ],
                 ),
-        
-                ///First Container
-                SizedBox(
-                  height: 25,
-                ),
-                Container(
+              ),
+
+              ///First Container
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
                   width: 560,
                   height: 182.49,
                   decoration: BoxDecoration(
@@ -74,7 +78,7 @@ class HomeView extends StatelessWidget {
                           ),
                           width: 1)),
                   child: Stack(
-        
+
                     children: [
                       Image.asset("assets/images/Intersect.png"),
                       Padding(
@@ -148,75 +152,75 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 20,),
-                Container(
-                  width: 550,
-                  height: 60,
-                  decoration: BoxDecoration(
+              ),
+              SizedBox(height: 20,),
+              Container(
+                //width: 40,
+                height: 60,
+                decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                      color: Color(0xFFFFF7F3)
-                  ),
+                    color: Color(0xFFFFF7F3)
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          //padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Color(0xFFFFA980),
-                                Color(0xFFFE5E00)],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
+                      Container(
+                        //padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xFFFFA980),
+                              Color(0xFFFE5E00)],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                           ),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              fixedSize:Size(80, 5),
-                              backgroundColor: Colors.transparent,
-                               shadowColor: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6),
-                              ),                        ),
-                            child: Text("بحث",style: TextStyle(fontSize: 11.54,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                                fontFamily: "Tajawal"
-                            ),),
-                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            fixedSize:Size(80, 5),
+                            backgroundColor: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),                        ),
+                          child: Text("بحث",style: TextStyle(fontSize: 11.54,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontFamily: "Tajawal"
+                          ),),
                         ),
                       ),
                       Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0 , top: 8 ,bottom: 8),
-                        child: Text("ابحث عن معلمك أو مركزك التعليمي",
-                          style: TextStyle(fontSize: 15,
+                      Text("ابحث عن معلمك أو مركزك التعليمي",
+                        style: TextStyle(fontSize: 15,
                             fontWeight: FontWeight.w500,
                             color: Color.fromRGBO(0, 0, 0, 0.3),
                             fontFamily: "Tajawal"
                         ),),
-                      ),
-        
+
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0 ,bottom: 8 , top: 8),
                         child: Icon(Icons.search,color: Color(0xFFFF641A),size: 28,),
                       )
                     ],
+                  ),
+                ),),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  textDirection: TextDirection.rtl,
+                  "المعلمين",
+                  style: TextStyle(fontSize: 24,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFFF641A),
+                      fontFamily: "Tajawal"
                   ),),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    textDirection: TextDirection.rtl,
-                    "المعلمين",
-                    style: TextStyle(fontSize: 24,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFFFF641A),
-                        fontFamily: "Tajawal"
-                    ),),
-                ),
-                Row(
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
@@ -260,66 +264,62 @@ class HomeView extends StatelessWidget {
                               fontFamily: "Tajawal"),)
                         ],),
                       ),),
-                ],),
-                Expanded(
-                  flex: 2,
-                  child: ListView.builder(
-                    itemCount: 5
-                    ,
-                    scrollDirection: Axis.horizontal
-                    ,itemBuilder: (context, index) {
+                  ],),
+              ),
+              Container(
+                width: size.width * (168 / 375).w,
+                height: size.height * (0.330).h,
+                child: ListView.builder(
+                  itemCount: 9,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
                     return TeacherCard();
-                  },),
+                  },
                 ),
-          Expanded(
-            child: Stack(
-              children: [
-                PageView(
-                  controller: controller,
+              ),
+              SizedBox(height: 20,),
+              Container(
+                width: size.width * (344 / 375),
+                height: 144,
+                child: Stack(
                   children: [
-                    CarouselItem(),
-                    CarouselItem(),
-                    CarouselItem(),
-                    CarouselItem(),
-                    CarouselItem()
+                    PageView(
+                      scrollDirection: Axis.horizontal,
+                      controller: controller,
+                      children: [
+                        CarouselItem(),
+                        CarouselItem(),
+                        CarouselItem(),
+                        CarouselItem(),
+                        CarouselItem()
+                      ],
+                    ),
+                    Positioned(
+                      top: 110,
+                      right: 15,
+                      child: SmoothPageIndicator(
+                        axisDirection: Axis.horizontal,
+                        controller: controller,
+                        count: 5,
+                        effect: ExpandingDotsEffect(
+                          dotHeight: 5,
+                          dotWidth: 7,
+                          activeDotColor: Color(0xFFFE5E00),
+                          radius: 10,
+                          dotColor: Color(0xFFFFC9AA),
+                          spacing: 10,
+                          expansionFactor: 5,
+                        ),
 
+
+                      ),
+                    )
                   ],
                 ),
-                Positioned(
-                  top: 110,
-                  right: 15,
-                  child: SmoothPageIndicator(
-                    controller: controller,
-                    count: 5,
-                    effect: ExpandingDotsEffect(
-                      dotHeight: 5,
-                      dotWidth: 7,
-                      activeDotColor: Color(0xFFFE5E00),
-                      radius: 10,
-                      dotColor: Color(0xFFFFC9AA),
-                    spacing: 10,
-                    expansionFactor: 5,
-                  ),
+              ),
 
 
-                    // WormEffect(
-                    //   dotHeight: 5,
-                    //   dotWidth: 7,
-                    //   activeDotColor: Color(0xFFFE5E00),
-                    //   radius: 10,
-                    //   type: ,
-                    //   dotColor: Color(0xFFFFC9AA)
-                    // ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          //SizedBox(height: 16),
-
-        
-              ],
-            ),
+            ],
           ),
         ),
       ),
@@ -344,7 +344,6 @@ class HomeView extends StatelessWidget {
                 AssetImage(
                   "assets/icons/Group.png",
                 ),
-                color: Color(0xFFFE5E00),
               ),
               label: "الرئيسية"),
         ],

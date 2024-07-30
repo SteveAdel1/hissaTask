@@ -1,5 +1,6 @@
 import 'package:app/splash/Splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/application_theme_manager.dart';
 
@@ -13,11 +14,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ApplicationThemeManager.theme,
-      home: SplashView(),
+    return ScreenUtilInit(
+      designSize: const Size(375, 858),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ApplicationThemeManager.theme,
+          home: SplashView(),
+        );
+      },
+
     );
   }
 }
